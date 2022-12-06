@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>使用VSCode开发VUE3的推荐插件和配置</title>
+      <link href="/posts/53327.html"/>
+      <url>/posts/53327.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="插件推荐"><a href="#插件推荐" class="headerlink" title="插件推荐"></a>插件推荐</h2><div class="note info no-icon flat"><p><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag">Auto Close Tag</a> - 自动添加 HTML&#x2F;XML 结束标签<br><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-complete-tag">Auto Complete Tag</a> - 为 HTML&#x2F;XML 添加关闭标签和自动重命名成对的标签<br><a href="https://marketplace.visualstudio.com/items?itemName=steoates.autoimport">Auto Import</a> - 自动查找、解析和提供所有可用导入的代码操作和代码完成<br><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag">Auto Rename Tag</a> - 自动重命名成对的 HTML&#x2F;XML 标签<br><a href="https://github.com/enyancc/vscode-ext-color-highlight">Color Highlight</a> - 颜色高亮插件<br><a href="https://marketplace.visualstudio.com/items?itemName=mikestead.dotenv">DotENV</a> - 高亮.env 文件<br><a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a> - 统一不同编辑器的一些配置<br><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a> - 代码检查<br><a href="https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph">Git Graph</a> - Git 图形化操作工具<br><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens — Git supercharged</a> - 显示具体某行代码的 git 信息<br><a href="https://marketplace.visualstudio.com/items?itemName=afzalsayed96.icones">Icônes</a> - 搜索 iconify 图标的插件<br><a href="https://marketplace.visualstudio.com/items?itemName=antfu.iconify">Iconify IntelliSense</a> - Iconify 图标实时显示的插件<br><a href="https://marketplace.visualstudio.com/items?itemName=whtouche.vscode-js-console-utils">javascript console utils</a> - 提供快捷键 ctrl+l 直接输入 console.log()<br><a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a> - 图标主题，显示文件和文件多种图标<br><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense">Path Intellisense</a> - 智能显示导入的路径<br><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a> - 代码格式化插件<br><a href="https://marketplace.visualstudio.com/items?itemName=antfu.unocss">UnoCSS</a> - unocss 写法提示插件<br><a href="https://marketplace.visualstudio.com/items?itemName=Vue.volar">Vue Language Features (Volar)</a> - volar 插件， Language support for Vue 3<br><a href="https://marketplace.visualstudio.com/items?itemName=sdras.vue-vscode-snippets">Vue VSCode Snippets</a> - vue2、vue3 写法提示</p></div><h2 id="部分配置"><a href="#部分配置" class="headerlink" title="部分配置"></a>部分配置</h2><div class="note info no-icon flat"><p>为了优化性能，Volar 提供了一个叫做“Takeover 模式”的功能。在这个模式下，Volar 能够使用一个 TS 语言服务实例同时为 Vue 和 TS 文件提供支持。</p><p>要开启 Takeover 模式，你需要执行以下步骤来在你的项目的工作空间中禁用 VSCode 的内置 TS 语言服务：</p><p>在当前项目的工作空间下，用 Ctrl + Shift + P (macOS：Cmd + Shift + P) 唤起命令面板。<br>输入 built，然后选择“Extensions：Show Built-in Extensions”。<br>在插件搜索框内输入 typescript (不要删除 @builtin 前缀)。<br>点击“TypeScript and JavaScript Language Features”右下角的小齿轮，然后选择“Disable (Workspace)”。<br>重新加载工作空间。Takeover 模式将会在你打开一个 Vue 或者 TS 文件时自动启用。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基于Vue3、Vite3、TypeScript、NaiveUI、Pinia 和 UnoCSS 的中后台模版</title>
+      <link href="/posts/13887.html"/>
+      <url>/posts/13887.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><a href="https://github.com/honghuangdc/soybean-admin">Soybean Admin</a> 是一个基于 Vue3、Vite3、TypeScript、NaiveUI、Pinia 和 UnoCSS 的清新优雅的中后台模版，它使用了最新的前端技术栈，内置丰富的主题配置，有着极高的代码规范，基于 mock 实现的动态权限路由，开箱即用的中后台前端解决方案，也可用于学习参考。</p><h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul><li><strong>最新技术栈</strong>：使用 Vue3&#x2F;Vite3 等前端前沿技术开发, 使用高效率的 npm 包管理器 pnpm</li><li><strong>TypeScript</strong>：应用程序级 JavaScript 的语言</li><li><strong>主题</strong>：丰富可配置的主题、暗黑模式，基于原子 css 框架 - UnoCSS 的动态主题颜色</li><li><strong>代码规范</strong>：丰富的规范插件及极高的代码规范</li><li><strong>权限路由</strong>：简易的路由配置、基于 mock 的动态路由能快速实现后端动态路由</li><li><strong>请求函数</strong>：基于 axios 的完善的请求函数封装，提供 Promise 和 hooks 两种请求函数，加入请求结果数据转换的适配器</li></ul><h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><ul><li><a href="https://soybean.pro/">soybean-admin</a></li></ul><h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><ul><li><a href="https://docs.soybean.pro/">项目文档: docs.soybean.pro</a></li></ul><h2 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h2><ul><li><a href="https://github.com/honghuangdc/soybean-admin">github</a></li><li><a href="https://gitee.com/honghuangdc/soybean-admin">gitee</a></li></ul><h2 id="后端服务"><a href="#后端服务" class="headerlink" title="后端服务"></a>后端服务</h2><ul><li><a href="https://github.com/honghuangdc/soybean-admin-java">soybean-admin-java(开发中)</a></li><li><a href="https://github.com/honghuangdc/soybean-admin-go">soybean-admin-go(开发中)</a></li><li><a href="https://github.com/honghuangdc/soybean-admin-nestjs">soybean-admin-nestjs(开发中)</a></li></ul><h2 id="项目示例图"><a href="#项目示例图" class="headerlink" title="项目示例图"></a>项目示例图</h2><p><img src="https://s2.loli.net/2022/05/16/keOtgFH27r9nqYS.png"></p><p><img src="https://s2.loli.net/2022/05/18/bW7mftiQexkvSTG.png"></p><p><img src="https://s2.loli.net/2022/05/16/uV5nzjb3gYptAEl.png"></p><p><img src="https://s2.loli.net/2022/05/16/rSnNHLdpuvkKxWq.png"></p><p><img src="https://s2.loli.net/2022/05/18/Mt6YZqmDxO8v4uR.png"></p><p><img src="https://s2.loli.net/2022/05/16/ktH5dcG3fuFOoKA.png"></p><p><img src="https://s2.loli.net/2022/05/16/VPl6Ru1iCAhLcS4.png"></p><p><img src="https://s2.loli.net/2022/05/16/bRlAKuHW7ZVh9DT.png"></p><p><img src="https://s2.loli.net/2022/06/07/rY8TyAftM5dxspv.png"></p><p><img src="https://s2.loli.net/2022/06/07/5GNBAd31IzQVjLP.png"></p><p><img src="https://s2.loli.net/2022/06/07/rRSG6mEZpujOACT.png"></p><h2 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h2><ul><li><p>环境配置<br><strong>本地环境需要安装 pnpm 7.x 、Node.js 14.18+ 和 Git</strong></p></li><li><p>克隆代码</p></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/honghuangdc/soybean-admin.git</span><br></pre></td></tr></table></figure><ul><li>安装依赖</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm i</span><br></pre></td></tr></table></figure><ul><li>运行</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm dev</span><br></pre></td></tr></table></figure><ul><li>打包</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm build</span><br></pre></td></tr></table></figure><h2 id="Docker-部署"><a href="#Docker-部署" class="headerlink" title="Docker 部署"></a>Docker 部署</h2><ul><li>Docker 部署 Soybean</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name soybean -p 80:80 -d soybeanjs/soybean-admin:v0.9.6</span><br></pre></td></tr></table></figure><ul><li>访问 SoybeanAdmin</li></ul><p>打开本地浏览器访问<code>http://localhost</code></p><h2 id="如何贡献"><a href="#如何贡献" class="headerlink" title="如何贡献"></a>如何贡献</h2><p>非常欢迎您的加入！<a href="https://github.com/honghuangdc/soybean-admin/issues/new">提一个 Issue</a> 或者提交一个 Pull Request。</p><h2 id="Git-贡献提交规范"><a href="#Git-贡献提交规范" class="headerlink" title="Git 贡献提交规范"></a>Git 贡献提交规范</h2><p>项目已经内置 angular 提交规范，通过 git cz 代替 git commit 命令即可。</p><p>git cz 命令需要全局安装 commitizen</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm i -g commitizen</span><br></pre></td></tr></table></figure><h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><p>本地开发推荐使用<code>Chrome 90+</code> 浏览器</p><p>支持现代浏览器, 不支持 IE</p><table><thead><tr><th align="center"><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png" alt="IE" width="24px" height="24px"  /></a>IE</th><th align="center"><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt=" Edge" width="24px" height="24px" /></a>Edge</th><th align="center"><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /></a>Firefox</th><th align="center"><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /></a>Chrome</th><th align="center"><a href="http://godban.github.io/browsers-support-badges/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /></a>Safari</th></tr></thead><tbody><tr><td align="center">not support</td><td align="center">last 2 versions</td><td align="center">last 2 versions</td><td align="center">last 2 versions</td><td align="center">last 2 versions</td></tr></tbody></table><h2 id="开源作者"><a href="#开源作者" class="headerlink" title="开源作者"></a>开源作者</h2><p><a href="https://github.com/honghuangdc">@Soybean</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>通过腾讯云DNSPOD解析Vercel来获取Twikoo评论的解决方案</title>
+      <link href="/posts/2303.html"/>
+      <url>/posts/2303.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于 Vercel 官方域名的 Dns 污染问题，导致 Vercel 部署的 Twikoo 评论无法正常获取数据。在配置 Twikoo 评论时，如果 envId 用了 vercel 自带的域名（类似 <a target="_blank" rel="noopener" href="https://xxxxx.vercel.app/">https://xxxxx.vercel.app/</a>），则会遇到以上问题。</p></p><p>解决方案是用自定义的域名去代替 vercel 的域名，详情可参考 <a target="_blank" rel="noopener" href="https://vercel.com/docs/concepts/projects/domains#dns-records">custom-domains#dns-records</a> <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="创建解析记录"><a href="#创建解析记录" class="headerlink" title="创建解析记录"></a>创建解析记录</h3><p>登录进入<a href="https://console.dnspod.cn/dns/wulimaimai.com/record">腾讯云DNSPOD</a>，按下图所示添加记录<br><img src="/images/post/09.png"></p><h3 id="Vercel-项目中添加-Domains"><a href="#Vercel-项目中添加-Domains" class="headerlink" title="Vercel-项目中添加-Domains"></a>Vercel-项目中添加-Domains</h3><p>进入【Project Settings】-&gt;【Domains】添加域名即可。<br><img src="/images/post/10.png"></p><h3 id="替换-envId"><a href="#替换-envId" class="headerlink" title="替换-envId"></a>替换-envId</h3><p>在主题配置文件<code>_config.butterfly.yml</code>中修改以下内容，将你的环境id填入对应位置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Twikoo</span></span><br><span class="line"><span class="comment"># https://github.com/imaegoo/twikoo</span></span><br><span class="line">twikoo:</span><br><span class="line">  envId: https://twikoo.wulimaimai.com/</span><br><span class="line">  region: </span><br><span class="line">  visitor: <span class="literal">true</span></span><br><span class="line">  option:</span><br></pre></td></tr></table></figure><p>最后别忘了重新编译运行，运行之后即可看到效果。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly魔改 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>基于hexo-algoliasearch开发搜索功能</title>
+      <link href="/posts/51719.html"/>
+      <url>/posts/51719.html</url>
+      
+        <content type="html"><![CDATA[<article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言" data-pjax-state=""></a>前言</h2><blockquote><p>本站基于<code>Hexo</code>搭建，用的最新版本 🦋 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly.git">hexo-theme-butterfly</a> 主题,如果你是别的版本，可能有些地方会有出入。本篇文章部分转载自🦋 <a target="_blank" rel="noopener" href="https://tzy1997.com/articles/hexo1607/">唐志远の博客</a></p></blockquote><blockquote><p>关于 Algolia 搜索功能，这里有两种插件，一个是 <a target="_blank" rel="noopener" href="https://github.com/thom4parisot/hexo-algolia">hexo-algolia</a> ，一个是 <a target="_blank" rel="noopener" href="https://github.com/LouisBarranqueiro/hexo-algoliasearch">hexo-algoliasearch</a>。第一种亲测只能对匹配文章title，不能匹配文章内容查询到结果，所以推荐第二种。下面分别对这两种插件做不同的说明。</p></blockquote><h3 id="获取-Algolia-账号"><a href="#获取-Algolia-账号" class="headerlink" title="获取 Algolia 账号" data-pjax-state=""></a>获取 Algolia 账号</h3><ol><li>注册 Algolia。<br>进入<a target="_blank" rel="noopener" href="https://www.algolia.com/">官网地址</a> 注册，也可以直接用<code>Github</code>授权登录。<img src="https://bu.dusays.com/2022/07/12/62cd8ab928023.jpg"/></li><li>新建 Index。<img src="https://bu.dusays.com/2022/07/12/62cd8abcf39d0.jpg"/></li><li>创建拥有一定权限的<code>api key</code>（如果选择第二种插件，可忽略这一步）。<br>进入【Settings &gt; API Keys】。<img src="https://bu.dusays.com/2022/07/12/62cd8ac08634e.jpg"/>进入【All API Keys &gt; API Keys】，点击【New API Key】。在ACL里面增加删除和新增Object的权限（按理说只用这两个权限就行，下图中我多加了几个），然后填上 indices 栏目中的 index name ，选刚才你创建的那个index，其余默认就行。<img src="https://bu.dusays.com/2022/07/12/62cd8ac422090.jpg"/><img src="https://bu.dusays.com/2022/07/12/62cd8ac713689.jpg"/>点击【Create】，这样就得到了一个 api key。注意一下，这个key将会在下面的步骤中用到。<img src="https://bu.dusays.com/2022/07/13/62cec7a818fd8.jpg"/></li></ol><h3 id="安装依赖-amp-amp-写入配置"><a href="#安装依赖-amp-amp-写入配置" class="headerlink" title="安装依赖 &amp;&amp; 写入配置" data-pjax-state=""></a>安装依赖 &amp;&amp; 写入配置</h3><div class="tabs" id="span-"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#span--1">hexo-algoliasearch（推荐）</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="span--1"><ol><li>安装 Algolia 依赖。<br>前往博客根目录，打开cmd命令窗口执行<code>npm install hexo-algoliasearch --save</code>。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algoliasearch --save</span><br></pre></td></tr></table></figure></li><li>注入配置。<br>修改站点配置文件<code>_config.yml</code>，添加如下代码：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">algolia:</span><br><span class="line">  appId: <span class="string">&quot;your applicationID&quot;</span></span><br><span class="line">  apiKey: <span class="string">&quot;your Search-Only API Key&quot;</span></span><br><span class="line">  adminApiKey: <span class="string">&quot;your Admin API Key&quot;</span></span><br><span class="line">  chunkSize: 5000</span><br><span class="line">  indexName: <span class="string">&quot;your indexName&quot;</span></span><br><span class="line">  fields:</span><br><span class="line">    - content:strip:<span class="built_in">truncate</span>,0,500</span><br><span class="line">    - excerpt:strip</span><br><span class="line">    - gallery</span><br><span class="line">    - permalink</span><br><span class="line">    - photos</span><br><span class="line">    - slug</span><br><span class="line">    - tags</span><br><span class="line">    - title</span><br></pre></td></tr></table></figure><img src="https://bu.dusays.com/2022/07/13/62cece7b31f5f.jpg"/>【applicationID】填入图中位置的 <span class="p blue">Applicaiton ID</span>，【apiKey】填入图中位置的 <span class="p blue">Search-Only API Key</span>，【Admin API Key】填入图中位置的 <span class="p blue">Admin API Key</span>，【indexName】填入前面创建的索引名称。</li><li>执行<code>hexo algolia</code>。<br>前往博客根目录，打开cmd命令窗口执行<code>hexo algolia</code>。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo algolia</span><br></pre></td></tr></table></figure><img src="https://bu.dusays.com/2022/07/16/62d2846f76321.jpg"/>到如下信息，证明成功了，可以去 Algolia 网站上查看，索引已经上传成功了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">INFO  128 files generated <span class="keyword">in</span> 2.33 s</span><br><span class="line">INFO  Clearing index on Algolia...</span><br><span class="line">INFO  Index cleared.</span><br><span class="line">INFO  Indexing posts on Algolia...</span><br><span class="line">INFO  65 posts indexed.</span><br></pre></td></tr></table></figure></li><li>主题中写入 Alogolia 配置项。<br>在主题配置文件<code>_config.butterfly.yml</code>中修改以下内容：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">algolia_search:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  hits:</span><br><span class="line">    per_page: 10</span><br><span class="line">  labels:</span><br><span class="line">    input_placeholder: Search <span class="keyword">for</span> Posts</span><br><span class="line">    hits_empty: <span class="string">&quot;我们没有找到任何搜索结果: <span class="variable">$&#123;query&#125;</span>&quot;</span></span><br><span class="line">    hits_stats: <span class="string">&quot;找到<span class="variable">$&#123;hits&#125;</span>条结果（用时<span class="variable">$&#123;time&#125;</span> ms）&quot;</span></span><br></pre></td></tr></table></figure></li><li>重新编译运行，即可看到效果。<br>前往博客根目录，打开cmd命令窗口依次执行如下命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo cl &amp;&amp; hexo generate</span><br><span class="line">hexo s -p 8000</span><br></pre></td></tr></table></figure></li><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div></article>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly魔改 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用Twikoo和Gitalk开发评论及留言</title>
+      <link href="/posts/24958.html"/>
+      <url>/posts/24958.html</url>
+      
+        <content type="html"><![CDATA[<article class="post-content" id="article-container"><h2 id="前言"><a href="#前言" class="headerlink" title="前言" data-pjax-state=""></a>前言</h2><blockquote><p>本站基于<code>Hexo</code>搭建，用的最新版本 🦋 <a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly.git">hexo-theme-butterfly</a> 主题 <br>如果你是别的版本，可能有些地方会有出入。</p></blockquote><h2 id="通用配置（一定要配置）"><a href="#通用配置（一定要配置）" class="headerlink" title="通用配置（一定要配置）" data-pjax-state=""></a>通用配置（一定要配置）</h2><p>从3.0.0开始，开启评论需要在<code>comments-use</code>中填写你需要的评论，这里参照你主题版本的格式写。</p><p>支持双评论显示，只需要配置两个评论（第一个为默认显示）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">comments:</span><br><span class="line">  <span class="comment"># Up to two comments system, the first will be shown as default</span></span><br><span class="line">  <span class="comment"># Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk</span></span><br><span class="line">  use:</span><br><span class="line">    - Twikoo</span><br><span class="line">    - Gitalk</span><br><span class="line">    <span class="comment"># Valine,Disqus</span></span><br><span class="line">  text: <span class="literal">true</span> <span class="comment"># Display the comment name next to the button</span></span><br><span class="line">  <span class="comment"># lazyload: The comment system will be load when comment element enters the browser&#x27;s viewport.</span></span><br><span class="line">  <span class="comment"># If you set it to true, the comment count will be invalid</span></span><br><span class="line">  lazyload: <span class="literal">true</span></span><br><span class="line">  count: <span class="literal">true</span> <span class="comment"># Display comment count in post&#x27;s top_img</span></span><br><span class="line">  card_post_count: <span class="literal">true</span> <span class="comment"># Display comment count in Home Page</span></span><br></pre></td></tr></table></figure><div class="table-wrap"><table><thead><tr><th align="left">参数</th><th align="left">解释</th></tr></thead><tbody><tr><td align="left">use</td><td align="left">使用的评论（请注意，最多支持两个，如果不需要请留空） <br>注意：双评论不能是 Disqus 和 Disqusjs 一起，由于其共用同一个 ID，会出错</td></tr><tr><td align="left">text</td><td align="left">是否显示评论服务商的名字</td></tr><tr><td align="left">lazyload</td><td align="left">是否为评论开启lazyload，开启后，只有滚动到评论位置时才会加载评论所需要的资源（开启 lazyload 后，评论数将不显示）</td></tr><tr><td align="left">count</td><td align="left">是否在文章顶部显示评论数<br> livere、Giscus 和 utterances 不支持评论数显示</td></tr><tr><td align="left">card_post_count</td><td align="left">是否在首页文章卡片显示评论数<br>gitalk、livere 、Giscus 和 utterances 不支持评论数显示</td></tr></tbody></table></div><h2 id="Twikoo（推荐）"><a href="#Twikoo（推荐）" class="headerlink" title="Twikoo（推荐）" data-pjax-state=""></a>Twikoo（推荐）</h2><blockquote><p>Twikoo 是一个简洁、安全、免费的静态网站评论系统，基于腾讯云开发。</p></blockquote><h3 id="特色"><a href="#特色" class="headerlink" title="特色" data-pjax-state=""></a>特色</h3><div class="tabs" id="span-"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#span--1">简单</button></li><li class="tab"><button type="button" data-href="#span--2">易用</button></li><li class="tab"><button type="button" data-href="#span--3">安全</button></li><li class="tab"><button type="button" data-href="#span--4">即时</button></li><li class="tab"><button type="button" data-href="#span--5">个性</button></li><li class="tab"><button type="button" data-href="#span--6">便捷管理</button></li><li class="tab"><button type="button" data-href="#span--7">缺点</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="span--1"><ul><li>免费搭建（使用云开发作为评论后台，每个用户均长期享受1个免费的标准型基础版1资源套餐）</li><li>简单部署（支持一键部署、手动部署、命令行部署）</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--2"><ul><li>支持回复、点赞</li><li>无需额外适配，支持搭配浅色主题与深色主题使用</li><li>支持 API 调用，批量获取文章评论数、最新评论</li><li>访客在昵称栏输入 QQ 号，会自动补全 QQ 昵称和 QQ 邮箱</li><li>访客填写数字 QQ 邮箱，会使用 QQ 头像作为评论头像</li><li>支持评论框粘贴图片（可禁用）</li><li>支持插入图片（可禁用）</li><li>支持去不图床、云开发图床</li><li>支持插入表情（可禁用）</li><li>支持 Ctrl + Enter 快捷回复</li><li>评论框内容实时保存草稿，刷新不会丢失</li><li><a target="_blank" rel="noopener" href="https://twikoo.js.org/faq.html#%E5%A6%82%E4%BD%95%E5%90%AF%E7%94%A8-katex-%E6%94%AF%E6%8C%81">支持 Katex 公式</a></li><li>支持按语言的代码高亮</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--3"><ul><li>隐私信息安全（通过云函数控制敏感字段（邮箱、IP、环境配置等）不会泄露）</li><li>支持 Akismet 垃圾评论检测（需自行注册 <a target="_blank" rel="noopener" href="https://akismet.com/">akismet.com</a>）</li><li>支持腾讯云内容安全垃圾评论检测（需自行注册 <a target="_blank" rel="noopener" href="https://console.cloud.tencent.com/cms/text/overview">腾讯云内容安全</a>）</li><li>支持人工审核模式</li><li>防 XSS 注入</li><li>支持限制每个 IP 每 10 分钟最多发表多少条评论</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--4"><ul><li>支持邮件提醒（访客和博主）</li><li>支持微信提醒（仅针对博主，基于 <a target="_blank" rel="noopener" href="https://sc.ftqq.com/3.version">Server酱</a>，需自行注册）</li><li>支持 QQ 提醒（仅针对博主，基于 <a target="_blank" rel="noopener" href="https://qmsg.zendee.cn/">Qmsg酱</a>，需自行注册）</li><li>支持 QQ 提醒（针对博主QQ或者群，基于 <a target="_blank" rel="noopener" href="https://docs.go-cqhttp.org/">go-cqhttp</a>，需自己有服务器）</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--5"><ul><li>支持自定义评论框背景图片</li><li>支持自定义“博主”标识文字</li><li>支持自定义通知邮件模板</li><li>支持自定义评论框提示信息（placeholder）</li><li>支持自定义表情列表（兼容 <a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/npm/owo@1.0.2/demo/OwO.json">OwO 的数据格式</a>）</li><li>支持自定义【昵称】【邮箱】【网址】必填 / 选填</li><li>支持自定义代码高亮主题</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--6"><ul><li>内嵌式管理面板，通过密码登录，可方便地查看评论、隐藏评论、删除评论、修改配置</li><li>支持隐藏管理入口，通过输入暗号显示</li><li>支持从 Valine、Artalk、Disqus 导入评论</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="span--7"><ul><li>国外请求较慢</li><li>部署需要实名认证</li><li>不支持 IE</li></ul><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div><blockquote><p>本站是用 <a target="_blank" rel="noopener" href="https://vercel.com/">Vercel</a> +  <a target="_blank" rel="noopener" href="https://www.mongodb.com/">MongoDB</a> 方案搭建 Twikoo 评论系统。<br>其他几种部署方式这里不做讲解，详情请参考：<a target="_blank" rel="noopener" href="https://twikoo.js.org/">Twikoo 文档</a> 。</p></blockquote><h3 id="Vercel-部署"><a href="#Vercel-部署" class="headerlink" title="Vercel 部署" data-pjax-state=""></a>Vercel 部署</h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤" data-pjax-state=""></a>步骤</h4><ol><li>申请 <a target="_blank" rel="noopener" href="https://www.mongodb.com/cloud/atlas/register">MongoDB</a> 账号<img src="https://bu.dusays.com/2022/07/30/62e4d6e7ce957.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d6efb8738.jpg"/>填好图上所需内容，点击【Create your Atlas account】。</li><li>创建免费 MongoDB 数据库，区域推荐选择 【AWS / N. Virginia (us-east-1)】<img src="https://bu.dusays.com/2022/07/30/62e4d7f1986b9.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d7fac54ff.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d7fe363b6.jpg"/></li><li>创建数据库用户（请记住这里的 password，后面步骤需要使用到），按步骤设置允许所有 IP（0.0.0.0/0）地址的连接（<a target="_blank" rel="noopener" href="https://vercel.com/support/articles/how-to-allowlist-deployment-ip-address">为什么？</a>），填完信息后，点击【Finish and Close】<img src="https://bu.dusays.com/2022/07/30/62e4d7ff47352.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d804d52c2.jpg"/></li><li>在 Clusters 页面点击 【Connect】，选择【Connect your appliction】，记录数据库连接字符串，请将连接字符串中的<code>&lt;password&gt;</code>修改为第三步中数据库密码，留着备用（将在第7步中用到）。<img src="https://bu.dusays.com/2022/07/30/62e4d807f00b7.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d80cbc69f.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e4d8121898f.jpg"/></li><li>申请 <a target="_blank" rel="noopener" href="https://vercel.com/signup">Vercel</a> 账号，可以选择 Github 账号来同步</li><li>点击 <a target="_blank" rel="noopener" href="https://vercel.com/import/project?template=https://github.com/imaegoo/twikoo/tree/main/src/server/vercel-min">此链接</a> 将 Twikoo 一键部署到 Vercel <img src="https://bu.dusays.com/2022/07/30/62e514b5559ac.jpg"/>点击 Create，等待 Deploy完成，可看到如下效果：<img src="https://bu.dusays.com/2022/07/30/62e514b90c6fb.jpg"/></li><li>进入【Settings】-&gt;【Environment Variables】，添加环境变量【MONGODB_URI】，值为第 4 步的数据库连接字符串<img src="https://bu.dusays.com/2022/07/30/62e514800dc82.jpg"/></li><li>进入【Deployments】，然后在任意一项后面点击更多（三个点），然后点击【Redeploy】，最后点击下面的【Redeploy】<img src="https://bu.dusays.com/2022/07/30/62e5148248164.jpg"/><img src="https://bu.dusays.com/2022/07/30/62e5168a4d321.jpg"/></li><li>进入【Overview】，点击【Domains】下方的链接，如果环境配置正确，可以看到 “Twikoo 云函数运行正常” 的提示<img src="https://bu.dusays.com/2022/07/30/62e516ba54ee8.jpg"/>Vercel Domains（包含 https:// 前缀，例如 <a target="_blank" rel="noopener" href="https://xxx.vercel.app/">https://xxx.vercel.app</a>）即为您的环境 id<img src="https://bu.dusays.com/2022/07/30/62e516dbde75f.jpg"/></li><li>在主题中写入 Twikoo 配置项。<br>在主题配置文件<code>_config.butterfly.yml</code>中修改以下内容，将你的环境id填入对应位置<figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Twikoo</span></span><br><span class="line"><span class="comment"># https://github.com/imaegoo/twikoo</span></span><br><span class="line"><span class="attr">twikoo:</span></span><br><span class="line">  <span class="attr">envId:</span> <span class="string">https://xxxxxx.vercel.app/</span> </span><br><span class="line">  <span class="attr">region:</span> </span><br><span class="line">  <span class="attr">visitor:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">option:</span></span><br></pre></td></tr></tbody></table></figure><div class="table-wrap"><table><thead><tr><th align="left">参数</th><th align="left">解释</th></tr></thead><tbody><tr><td align="left">envId</td><td align="left">环境id</td></tr><tr><td align="left">region</td><td align="left">环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数</td></tr><tr><td align="left">visitor</td><td align="left">是否显示文章閲读数</td></tr><tr><td align="left">option</td><td align="left">可选配置</td></tr></tbody></table></div><blockquote><p>开启 visitor 后，文章页的访问人数将改为 Twikoo 提供，而不是 不蒜子。</p></blockquote></li><li>重新编译运行，即可看到效果，点击评论区输入框下方的齿轮状按钮，设置你的管理密码，具体配置信息这里不做讲解，按照注解进行配置即可。</li></ol><h3 id="部署时遇到的常见错误"><a href="#部署时遇到的常见错误" class="headerlink" title="部署时遇到的常见错误" data-pjax-state=""></a>部署时遇到的常见错误</h3><p>请参考 <a href="https://tzy1997.com/articles/hexo1612" data-pjax-state="">Hexo + Butterfly 一些常见问题</a> 一文中关于【Twikoo】部分提及的内容。</p></li></ol><h2 id="Gitalk"><a href="#Gitalk" class="headerlink" title="Gitalk" data-pjax-state=""></a>Gitalk</h2><p>Gitalk 是一个基于 GitHub Issue 和 Preact 开发的评论插件。特性如下：</p><ul><li>使用 GitHub 登录</li><li>支持多语言 [en, zh-CN, zh-TW, es-ES, fr, ru, de, pl, ko, fa, ja]</li><li>支持个人或组织</li><li>无干扰模式（设置 distractionFreeMode 为 true 开启）</li><li>快捷键提交评论 （cmd|ctrl + enter）</li></ul><p>首先，您需要选择一个公共github存储库（已存在或创建一个新的github存储库）用于存储评论。</p><p>然后需要点击右上角头像【Settings】-&gt;【Developer settings】-&gt;【OAuth Apps】-&gt;【New OAuth App】 创建【GitHub Application】进行基本配置 ，找不到地方直接 <a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">点击这里申请</a>。</p><img src="https://bu.dusays.com/2022/08/03/62ea878812026.jpg"/></a><p>【Homepage URL】填写博客的仓库地址，例如我的填写<code>https://Maimai-snowcapped.github.io</code>。<br>【Authorization callback URL】填写当前使用的域名，例如我的填写<code>https://wulimaimai.com</code>，没有域名，跟【Homepage URL】保持一致即可。</p><p>然后可看到目标client_id， 继续点击【Generate a new client secret】即可得到目标【client_secret】。</p><img src="https://bu.dusays.com/2022/08/03/62ea878812026.jpg"/></a><p>最后在主题配置文件<code>_config.butterfly.yml</code>中配置以下内容：</p><figure class="highlight yml"><div class="highlight-tools "><i class="fas fa-angle-down expand "></i><div class="code-lang">yml</div><div class="copy-notice"></div><i class="fas fa-paste copy-button"></i></div><div class="code-expand-btn"><i class="fas fa-angle-double-down"></i></div><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># gitalk</span></span><br><span class="line"><span class="comment"># https://github.com/gitalk/gitalk</span></span><br><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="string">'GitHub Application Client ID'</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="string">'GitHub Application Client Secret'</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">'GitHub repo'</span></span><br><span class="line">  <span class="attr">owner:</span> <span class="string">'GitHub repo owner'</span></span><br><span class="line">  <span class="attr">admin:</span> <span class="string">'GitHub repo owner and collaborators, only these guys can initialize github issues'</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">en</span> <span class="comment"># en, zh-CN, zh-TW, es-ES, fr, ru</span></span><br><span class="line">  <span class="attr">perPage:</span> <span class="number">10</span> <span class="comment"># Pagination size, with maximum 100.</span></span><br><span class="line">  <span class="attr">distractionFreeMode:</span> <span class="literal">false</span> <span class="comment"># Facebook-like distraction free mode.</span></span><br><span class="line">  <span class="attr">pagerDirection:</span> <span class="string">last</span> <span class="comment"># Comment sorting direction, available values are last and first.</span></span><br><span class="line">  <span class="attr">createIssueManually:</span> <span class="literal">true</span> <span class="comment"># Gitalk will create a corresponding github issue for your every single page automatically</span></span><br><span class="line">  <span class="attr">option:</span></span><br></pre></td></tr></tbody></table></figure><p>效果如下：</p><img src="https://bu.dusays.com/2022/08/04/62ea9fe2957cd.jpg"/><blockquote><p>详情可参考 <a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">Gitalk Readme</a>。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly魔改 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Butterfly主题魔改美化</title>
+      <link href="/posts/18089.html"/>
+      <url>/posts/18089.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Butterfly魔改美化"><a href="#Butterfly魔改美化" class="headerlink" title="Butterfly魔改美化"></a>Butterfly魔改美化</h2><div class="note orange icon-padding flat"><i class="note-icon fas fa-battery-half"></i><p><a href="https://akilar.top/">Akilarの糖果屋</a></p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly魔改 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Butterfly主题原生初始化</title>
+      <link href="/posts/14245.html"/>
+      <url>/posts/14245.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="Butterfly主题"><a href="#Butterfly主题" class="headerlink" title="Butterfly主题"></a>Butterfly主题</h2><h3 id="主题初始化"><a href="#主题初始化" class="headerlink" title="主题初始化"></a>主题初始化</h3><div class="note green icon-padding flat">    <i class="note-icon fas fa-rocket"></i>    <p>📚 文檔目錄</p>    <p>        <a href="https://butterfly.js.org/posts/21cfbf15/" title="Butterfly 安裝文檔(一) 快速開始" data-pjax-state="">🚀 快速開始</a> -         <a href="https://butterfly.js.org/posts/dc584b87/" title="Butterfly 安裝文檔(二) 主題頁面" data-pjax-state="">📑 主題頁面</a> -         <a href="https://butterfly.js.org/posts/4aa8abbe/" title="Butterfly 安裝文檔(三) 主題配置-1" data-pjax-state="">🛠 主題配置-1</a> -         <a href="https://butterfly.js.org/posts/ceeb73f/" title="Butterfly 安裝文檔(四) 主題配置-2" data-pjax-state="">⚔️ 主題配置-2</a> -         <a href="https://butterfly.js.org/posts/98d20436/" title="Butterfly 安裝文檔(五) 主題問答" data-pjax-state="">❓ 主題問答</a> -         <a href="https://butterfly.js.org/posts/4073eda/" title="Butterfly 安裝文檔(六) 進階教程" data-pjax-state="">⚡️ 進階教程</a> -         <a href="https://butterfly.js.org/posts/198a4240/" title="Butterfly 安裝文檔(七) 更新日誌" data-pjax-state="">✨ 更新日誌</a>    </p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Butterfly原生 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>简要概述利用GitHub+Hexo+Butterfly主题搭建博客</title>
+      <link href="/posts/16107.html"/>
+      <url>/posts/16107.html</url>
+      
+        <content type="html"><![CDATA[<div class="note warning no-icon flat"><p>注册GitHub，安装Git，绑定GitHub并提交文件，安装node.js和Hexo，初始化跑出个界面然后提交代码，这些就直接略过了。<br>具体可以参考<a href="https://hexo.io/zh-cn/docs/">hexo官方文档</a></p></div><h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><div class="note info no-icon flat"><h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>购买域名有几个网站，可以在<a href="https://www.godaddy.com/zh-sg">Godaddy</a>上，也可以在<a href="https://wanwang.aliyun.com/">阿里云</a>，<a href="https://buy.cloud.tencent.com/domain">腾讯云</a>等网站购买，我是在腾讯云上购买的，一个.com的域名加上DNS解析服务，一共是89元一年。</p><p>按照指导来一步步操作就行。期间有个创建个人信息模板等待认证的过程，文字提示是好几个工作日，实际上就几分钟，快得很。</p></div><div class="note info no-icon flat"><h3 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h3><p>第一步：登录<a href="https://console.cloud.tencent.com/domain/all-domain">腾讯云</a>，在我的域名后点击解析添加两条解析记录：</p><p><img src="/images/post/01.png"></p><p>IPV4地址可以通过ping得到</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ping Maimai-snowcapped.github.io</span><br><span class="line"><span class="comment">#ping + 你的GitHub的网址</span></span><br></pre></td></tr></table></figure><p>第二步：打开 Blog根目录里的 source 文件夹，添加CNAME文件，可以先创建一个CNAME.txt文件，打开后写上你的域名，不要加www否则每次访问都必须加www，但如果不带有www，以后访问的时候带不带www都可以访问，保存后记得要重命名，将.txt删除</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wulimaimai.com</span><br></pre></td></tr></table></figure><p>第三步：回到 Blog根目录，右键打开 Git Bash，依次输入下面三条命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo cl</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>打开GitHub，看看CNAME文件是否已经在你的项目中，点击 settings查看Custom domain,确保你的网址已保存。<br>（没有传上去的自己加一个CNAME文件也行）。<br>之后访问自己的域名，能出现hexo页面就代表站点已经建好了。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> HEXO </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HEXO部署 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

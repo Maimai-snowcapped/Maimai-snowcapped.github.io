@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><div id="myscoll"></div><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>聊天机器人开发(四)-中间件和消息元素 | yskmの博客</title><meta name="author" content="yskm,yskm.jin@gmail.com"><meta name="copyright" content="yskm"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="本文适合有代码基础的程序员翻阅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊天机器人开发(四)-中间件和消息元素">
+<meta property="og:url" content="http://yskm.net/posts/4.html">
+<meta property="og:site_name" content="yskmの博客">
+<meta property="og:description" content="本文适合有代码基础的程序员翻阅">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yskm.net/images/post/34.jpg">
+<meta property="article:published_time" content="2023-07-23T14:00:01.000Z">
+<meta property="article:modified_time" content="2023-07-23T14:00:01.000Z">
+<meta property="article:author" content="yskm">
+<meta property="article:tag" content="AI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yskm.net/images/post/34.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yskm.net/posts/4"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"YKLAVTRL3Y","apiKey":"32cfbcddc627c98a3550f62a2c74c755","indexName":"Maimai","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: yskm","link":"链接: ","source":"来源: yskmの博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '聊天机器人开发(四)-中间件和消息元素',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-23 22:00:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><script src="https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/cdn/js/three.min.js"></script><script data-pjax src="https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/cdn/js/echarts.min.js"></script><link rel="stylesheet" href="/css/custom/twikoo_beautify.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/cat.css"><link rel="stylesheet" href="https://npm.elemecdn.com/ethan4116-blog/lib/css/plane_v2.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="pokeball-back"></div><div class="pokeball-loading"><div class="pokeball" id="pokeball-normal"></div><div class="pokeball" id="pokeball-great"></div><div class="pokeball" id="pokeball-ultra"></div><div class="pokeball" id="pokeball-master"></div><div class="pokeball" id="pokeball-safari"></div></div></div><script async="async">  var preloader = {
+      endLoading: () => {
+        document.body.style.overflow = 'auto';
+        document.getElementById('loading-box').classList.add("loaded")
+      },
+      initLoading: () => {
+        document.body.style.overflow = '';
+        document.getElementById('loading-box').classList.remove("loaded")
+
+      }
+    }
+window.addEventListener('load',()=> {preloader.endLoading()})
+setTimeout(function(){preloader.endLoading();}, 5000);</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/01.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house-user"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tag"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-book"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-:fa-regular fa-mug-saucer"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/echarts/"><i class="fa-fw blog-overview"></i><span> 博客统计</span></a></li></ul></div></div></div></div><div class="canvas-container" id="canvas"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/post/34.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">yskmの博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-house-user"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tag"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-book"></i><span> 留言</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-:fa-regular fa-mug-saucer"></i><span> 其他</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/echarts/"><i class="fa-fw blog-overview"></i><span> 博客统计</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">聊天机器人开发(四)-中间件和消息元素</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-23T14:00:01.000Z" title="发表于 2023-07-23 22:00:01">2023-07-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-23T14:00:01.000Z" title="更新于 2023-07-23 22:00:01">2023-07-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/AI/">AI</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="聊天机器人开发(四)-中间件和消息元素"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><p>有了接收事件和发送消息的能力，似乎你就能完成一切工作了——很多机器人框架也的确是这么想的。<br>但是从 Koishi 的角度，这还远远不够。<br>因为当我们面临更复杂的需求时，新的问题也会随之产生：</p>
+<div class="note warning no-icon flat"><p>如何限制消息能触发的应答次数？<br>如何进行权限管理？<br>如何提高机器人的性能？</p>
+</div>
+<p>这些问题的答案将我们引向另一套更高级的系统——这也就是中间件的由来。</p>
+<p>中间件是对消息事件处理流程的再封装。<br>你注册的所有中间件将会由一个事件监听器进行统一管理，数据流向下游，控制权流回上游——这可以有效确保了任意消息都只被处理一次。<br>被认定为无需继续处理的消息不会进入下游的中间件——这让我们能够轻易地实现权限管理。<br>与此同时，Koishi 的中间件也支持异步调用，这使得你可以在中间件函数中实现任何逻辑。<br>事实上，相比更加底层地调用事件监听器，使用中间件处理消息才是 Koishi 更加推荐的做法。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>还记得上一节介绍的基本示例吗？让我们把它改成中间件的形式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 如果收到“天王盖地虎”，就回应“宝塔镇河妖”</span><br><span class="line">ctx.middleware((session, next) =&gt; &#123;</span><br><span class="line">  if (session.content === &#x27;天王盖地虎&#x27;) &#123;</span><br><span class="line">    return &#x27;宝塔镇河妖&#x27;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    // 如果去掉这一行，那么不满足上述条件的消息就不会进入下一个中间件了</span><br><span class="line">    return next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>中间件与事件的写法非常相似，但有三点区别：</p>
+<div class="note warning no-icon flat"><p>事件使用 ctx.on() 注册，而中间件使用 ctx.middleware() 注册<br>中间件的回调函数接受额外的第二个参数 next，只有调用了它才会进入接下来的流程<br>中间件支持直接返回要发送的内容，而事件需要手动调用 session.send()</p>
+</div>
+<p>同事件类似，注册中间件时也会返回一个新的函数，调用这个函数就可以取消该中间件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 如果收到“天王盖地虎”，就回应“宝塔镇河妖”</span><br><span class="line"><span class="built_in">declare</span> const callback: import(<span class="string">&#x27;koishi&#x27;</span>).Middleware</span><br><span class="line">// ---<span class="built_in">cut</span>---</span><br><span class="line">const dispose = ctx.middleware(callback)</span><br><span class="line">dispose() // 取消中间件</span><br></pre></td></tr></table></figure>
+
+<h3 id="异步中间件"><a href="#异步中间件" class="headerlink" title="异步中间件"></a>异步中间件</h3><p>中间件也可以是异步的。下面给出一个示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ctx.middleware(async (session, next) =&gt; &#123;</span><br><span class="line">  // 获取数据库中的用户信息</span><br><span class="line">  // 这里只是示例，事实上 Koishi 会自动获取数据库中的信息并存放在 session.user 中</span><br><span class="line">  const user = await session.getUser(session.userId)</span><br><span class="line">  <span class="keyword">if</span> (user.authority === 0) &#123;</span><br><span class="line">    <span class="built_in">return</span> <span class="string">&#x27;抱歉，你没有权限访问机器人。&#x27;</span></span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">return</span> next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="前置中间件"><a href="#前置中间件" class="headerlink" title="前置中间件"></a>前置中间件</h3><p>从上面的两个例子中不难看出，中间件是一种消息过滤的利器。<br>但是反过来，当你需要的恰恰是捕获全部消息时，中间件反而不会是最佳选择——因为更早注册的中间件可能会将消息过滤掉，导致你注册的回调函数根本不被执行。<br>因此在这种情况下，我们更推荐使用事件监听器。然而，还存在着这样一种情况：你既需要捕获全部的消息，又要对其中的一些加以回复，这又该怎么处理呢？</p>
+<p>听起来这种需求有些奇怪，让我们举个具体点例子吧：<br>假如你写的是一个复读插件，它需要在每次连续接收到 3 条相同消息时进行复读。我们不难使用事件监听器实现这种逻辑：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> <span class="built_in">times</span> = 0 // 复读次数</span><br><span class="line"><span class="built_in">let</span> message = <span class="string">&#x27;&#x27;</span> // 当前消息</span><br><span class="line"></span><br><span class="line">ctx.on(<span class="string">&#x27;message&#x27;</span>, (session) =&gt; &#123;</span><br><span class="line">  // 这里其实有个小问题，因为来自不同群的消息都会触发这个回调函数</span><br><span class="line">  // 因此理想的做法应该是分别记录每个群的当前消息和复读次数</span><br><span class="line">  // 但这里我们假设机器人只处理一个群，简化示例的逻辑</span><br><span class="line">  <span class="keyword">if</span> (session.content === message) &#123;</span><br><span class="line">    <span class="built_in">times</span> += 1</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">times</span> === 3) session.send(message)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">times</span> = 0</span><br><span class="line">    message = session.content</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>但是这样写出的机器人就存在所有用事件监听器写出的机器人的通病——如果这条消息本身可以触发其他回应，机器人就会多次回应。<br>更糟糕的是，你无法预测哪一次回应先发生，因此这样写出的机器人就会产生延迟复读的迷惑行为。<br>为了避免这种情况发生，Koishi 对这种情况也有对应的解决方案，那就是前置中间件。</p>
+<p>与前置事件类似，向 ctx.middleware() 传入额外的第二个参数 true 以注册前置中间件。<br>所有消息会优先经过前置中间件，像事件监听器一样，并且你获得了决定这条消息是否继续触发其他中间件的能力，这是事件监听器所不具有的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> <span class="built_in">times</span> = 0 // 复读次数</span><br><span class="line"><span class="built_in">let</span> message = <span class="string">&#x27;&#x27;</span> // 当前消息</span><br><span class="line"></span><br><span class="line">ctx.middleware((session, next) =&gt; &#123;</span><br><span class="line">  if (session.content === message) &#123;</span><br><span class="line">    times += <span class="number">1</span></span><br><span class="line">    if (times === <span class="number">3</span>) return message</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    times = <span class="number">0</span></span><br><span class="line">    message = session.content</span><br><span class="line">    return next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, true /* true 表示这是前置中间件 */)</span><br></pre></td></tr></table></figure>
+
+<h3 id="临时中间件"><a href="#临时中间件" class="headerlink" title="临时中间件"></a>临时中间件</h3><p>有的时候，你也可能需要实现这样一种逻辑：<br>你的中间件产生了一个响应，但你认为这个响应优先级较低，希望等后续中间件执行完毕后，如果信号仍然未被截取，就执行之前的响应。<br>这当然可以通过注册新的中间件并取消的方法来实现，但是由于这个新注册的中间件可能不被执行，你需要手动处理许多的边界情况。</p>
+<p>为了应对这种问题 Koishi 提供了更加方便的写法：你只需要在调用 next 时再次传入一个回调函数即可！<br>这个回调函数只接受一个 next 参数，且只会加入当前的中间件执行队列；无论这个回调函数执行与否，在本次中间件解析完成后，它都会被清除。下面是一个例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ctx.middleware((session, next) =&gt; &#123;</span><br><span class="line">  if (session.content === &#x27;hlep&#x27;) &#123;</span><br><span class="line">    // 如果该 session 没有被截获，则这里的回调函数将会被执行</span><br><span class="line">    return next(&#x27;你想说的是 help 吗？&#x27;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>除此以外，临时中间件还有下面的用途。<br>让我们先回到上面介绍的前置中间件。它虽然能够成功解决问题，但是如果有两个插件都注册了类似的前置中间件，就仍然可能发生一个前置中间件截获了消息，导致另一个前置中间件获取不到消息的情况发生。<br>但是，借助临时中间件，我们便有了更好的解决方案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> <span class="built_in">times</span> = 0 // 复读次数</span><br><span class="line"><span class="built_in">let</span> message = <span class="string">&#x27;&#x27;</span> // 当前消息</span><br><span class="line"></span><br><span class="line">ctx.middleware((session, next) =&gt; &#123;</span><br><span class="line">  if (session.content === message) &#123;</span><br><span class="line">    times += <span class="number">1</span></span><br><span class="line">    if (times === <span class="number">3</span>) return next(message)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    times = <span class="number">0</span></span><br><span class="line">    message = session.content</span><br><span class="line">    return next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, true)</span><br></pre></td></tr></table></figure>
+<p>搭配使用上面几种中间件，你的机器人便拥有了无限可能。<br>在 koishi-plugin-repeater 库中，就有着一个官方实现的复读功能，它远比上面的示例所显示的更加强大。<br>如果想深入了解中间件机制，可以去研究一下这个功能的<a target="_blank" rel="noopener" href="https://github.com/koishijs/koishi-plugin-repeater/blob/main/src/index.ts">源代码</a>。</p>
+<h2 id="消息元素"><a href="#消息元素" class="headerlink" title="消息元素"></a>消息元素</h2><p>当然，一个聊天平台所能发送或接收的内容往往不只有纯文本。为此，我们引入了 消息元素 (Element) 的概念。</p>
+<p>消息元素类似于 HTML 元素，它是组成消息的基本单位。一个元素可以表示具有特定语义的内容，<br>如文本、表情、图片、引用、元信息等。Koishi 会将这些元素转换为平台所支持的格式，以便在不同平台之间发送和接收消息。</p>
+<h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><p>一个典型的元素包含名称、属性和内容。在 Koishi 中，我们通常使用 JSX 或 API 的方式创建元素。下面是一些例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// JSX</span><br><span class="line"></span><br><span class="line">// 欢迎 @用户名 入群！</span><br><span class="line">session.send(&lt;&gt;欢迎 &lt;at <span class="built_in">id</span>=&#123;userId&#125;/&gt; 入群！&lt;/&gt;)</span><br><span class="line"></span><br><span class="line">// 发送一张 Koishi 图标</span><br><span class="line">session.send(&lt;img src=<span class="string">&quot;https://koishi.chat/logo.png&quot;</span>/&gt;)</span><br><span class="line"></span><br><span class="line">// API</span><br><span class="line"></span><br><span class="line">// 欢迎 @用户名 入群！</span><br><span class="line">session.send(<span class="string">&#x27;欢迎 &#x27;</span> + h(<span class="string">&#x27;at&#x27;</span>, &#123; <span class="built_in">id</span>: session.userId &#125;) + <span class="string">&#x27; 入群！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">// 发送一张 Koishi 图标</span><br><span class="line">session.send(h(<span class="string">&#x27;img&#x27;</span>, &#123; src: <span class="string">&#x27;https://koishi.chat/logo.png&#x27;</span> &#125;))</span><br></pre></td></tr></table></figure>
+<p>这两种写法各有优劣，不同人可能会有不同的偏好。但无论哪一种写法都表达了同样的意思。</p>
+<h3 id="标准元素"><a href="#标准元素" class="headerlink" title="标准元素"></a>标准元素</h3><p>Koishi 提供了一系列标准元素，它们覆盖了绝大部分常见的需求。例如：</p>
+<div class="note warning no-icon flat"><p>at：提及用户<br>quote：引用回复<br>img：嵌入图片<br>message：发送消息</p>
+</div>
+<p>尽管一个平台不太可能支持所有的行为，但适配器对每一个标准元素都进行了最大程度的适配。<br>例如，对于不支持斜体的平台，我们会将斜体元素转换为普通文本；对于无法同时发送多张图片的平台，我们会将多张图片转换为多条消息分别发送等等。<br>这样一来，开发者便可以在不同平台上使用同一套代码，而不用担心平台差异。</p>
+<p>我们先对比较常用的一些元素进行介绍，你可以稍后在 这个页面 查看所有的标准元素。</p>
+<h4 id="提及用户和消息"><a href="#提及用户和消息" class="headerlink" title="提及用户和消息"></a>提及用户和消息</h4><p>使用 at 元素提及用户：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">欢迎 &lt;at <span class="built_in">id</span>=&#123;userId&#125;/&gt; 入群！</span><br></pre></td></tr></table></figure>
+<p>使用 quote 元素引用回复：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;quote <span class="built_in">id</span>=&#123;messageId&#125;/&gt; 你说得对</span><br></pre></td></tr></table></figure>
+
+<h4 id="嵌入图片和其他资源"><a href="#嵌入图片和其他资源" class="headerlink" title="嵌入图片和其他资源"></a>嵌入图片和其他资源</h4><p>使用 img, audio, video 和 file 元素嵌入图片、音频、视频和文件，它们的用法是类似的。这里以图片为例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=<span class="string">&quot;https://koishi.chat/logo.png&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+<p>上面是对于网络图片的用法，如果你想发送本地图片，可以使用 file: URL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; pathToFileURL &#125; from <span class="string">&#x27;url&#x27;</span></span><br><span class="line">import &#123; resolve &#125; from <span class="string">&#x27;path&#x27;</span></span><br><span class="line"></span><br><span class="line">// 发送相对路径下的 logo.png</span><br><span class="line">h.image(pathToFileURL(resolve(__dirname, <span class="string">&#x27;logo.png&#x27;</span>)).href)</span><br><span class="line"></span><br><span class="line">// 等价于下面的写法</span><br><span class="line">&lt;img src=&#123;pathToFileURL(resolve(__dirname, <span class="string">&#x27;logo.png&#x27;</span>)).href&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<p>如果图片以二进制数据的形式存在于内存中，你也可以直接通过 h.image() 构造 data: URL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 这里的二参数是图片的 MIME 类型</span><br><span class="line">h.image(buffer, <span class="string">&#x27;image/png&#x27;</span>)</span><br><span class="line"></span><br><span class="line">// 等价于下面的写法</span><br><span class="line">&lt;img src=&#123;<span class="string">&#x27;data:image/png;base64,&#x27;</span> + buffer.toString(<span class="string">&#x27;base64&#x27;</span>)&#125;/&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="进阶用法"><a href="#进阶用法" class="headerlink" title="进阶用法"></a>进阶用法</h2><p>在前面的几节中，我们已经了解了基础的交互概念。以他们为基础，Koishi 提供了一些进阶的用法，用于处理真实应用场景中的交互需求。</p>
+<h3 id="机器人对象"><a href="#机器人对象" class="headerlink" title="机器人对象"></a>机器人对象</h3><p>我们通常将机器人做出的交互行为分为两种：主动交互和被动交互。<br>主动交互是指机器人主动进行某些操作，而被动交互则是指机器人接收到特定事件后做出的响应。<br>一个机器人的大部分交互都应该是被动的，而主动交互则可用于一些特殊情况，比如定时任务、通知推送等。</p>
+<p>Koishi 提供的交互性 API 可能存在于 ctx，session 和 bot 三种对象中。<br>其中，上下文对象 ctx 可以在插件参数中取得，会话对象 session 可以在被动交互中取得，而机器人对象 bot 则可以从上述两个对象中访问到：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 从 session 中访问 bot</span><br><span class="line">session.bot</span><br><span class="line"></span><br><span class="line">// 从 ctx 中访问 bot，其中 platform 和 selfId 分别是平台名称和机器人 ID</span><br><span class="line">ctx.bots[`<span class="variable">$&#123;platform&#125;</span>:<span class="variable">$&#123;selfId&#125;</span>`]</span><br></pre></td></tr></table></figure>
+
+<h3 id="广播消息"><a href="#广播消息" class="headerlink" title="广播消息"></a>广播消息</h3><p>主动交互中的一种常见需求是同时向多个频道发送消息。Koishi 提供了两套方法来实现消息的广播。最基础的写法是直接使用 bot.broadcast()：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 一参数填写你要发送到的频道 ID 列表</span><br><span class="line">await bot.broadcast([<span class="string">&#x27;123456&#x27;</span>, <span class="string">&#x27;456789&#x27;</span>], <span class="string">&#x27;全体目光向我看齐&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>但这样写需要知道每一个频道对应哪个机器人。对于启用了多个机器人的场景下，这么写就有点不方便了。<br>幸运的是，Koishi 还有另一个方法：ctx.broadcast()。在启用了数据库的情况下，此方法会自动获取每个频道的受理人，并以对应的账号发送消息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">await ctx.broadcast([<span class="string">&#x27;telegram:123456&#x27;</span>, <span class="string">&#x27;discord:456789&#x27;</span>], <span class="string">&#x27;全体目光向我看齐&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="等待输入"><a href="#等待输入" class="headerlink" title="等待输入"></a>等待输入</h3><p>当你需要进行一些交互式操作时，可以使用 session.prompt()：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">await session.send(<span class="string">&#x27;请输入用户名：&#x27;</span>)</span><br><span class="line"></span><br><span class="line">const name = await session.prompt()</span><br><span class="line"><span class="keyword">if</span> (!name) <span class="built_in">return</span> <span class="string">&#x27;输入超时。&#x27;</span></span><br><span class="line"></span><br><span class="line">// 执行后续操作</span><br><span class="line"><span class="built_in">return</span> `<span class="variable">$&#123;name&#125;</span>，请多指教！`</span><br></pre></td></tr></table></figure>
+<p>你可以给这个方法传入一个 timeout 参数，或使用 delay.prompt 配置项，来作为等待的时间。</p>
+<h3 id="延时发送"><a href="#延时发送" class="headerlink" title="延时发送"></a>延时发送</h3><p>如果你需要连续发送多条消息，那么在各条消息之间留下一定的时间间隔是很重要的：<br>一方面它可以防止消息刷屏和消息错位 (后发的条消息呈现在先发的消息前面)，提高了阅读体验；<br>另一方面它能够有效降低机器人发送消息的频率，防止被平台误封。这个时候，session.sendQueued() 可以解决你的问题。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 发送两条消息，中间间隔一段时间，这个时间由系统计算决定</span><br><span class="line">await session.sendQueued(<span class="string">&#x27;message1&#x27;</span>)</span><br><span class="line">await session.sendQueued(<span class="string">&#x27;message2&#x27;</span>)</span><br><span class="line"></span><br><span class="line">// 清空等待队列</span><br><span class="line">await session.cancelQueued()</span><br></pre></td></tr></table></figure>
+<p>你也可以在发送时手动定义等待的时长：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Time &#125; from <span class="string">&#x27;koishi&#x27;</span></span><br><span class="line"></span><br><span class="line">// 如果消息队列非空，在前一条消息发送完成后 1s 发送本消息</span><br><span class="line">await session.sendQueued(<span class="string">&#x27;message3&#x27;</span>, Time.second)</span><br><span class="line"></span><br><span class="line">// 清空等待队列，并设定下一条消息发送距离现在至少 0.5s</span><br><span class="line">await session.cancelQueued(0.5 * Time.second)</span><br></pre></td></tr></table></figure>
+<p>事实上，对于不同的消息长度，系统等待的时间也是不一样的，你可以通过配置项修改这个行为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">delay:</span><br><span class="line">  <span class="comment"># 消息里每有一个字符就等待 0.02s</span></span><br><span class="line">  character: 20</span><br><span class="line">  <span class="comment"># 每条消息至少等待 0.5s</span></span><br><span class="line">  message: 500</span><br></pre></td></tr></table></figure>
+<p>这样一来，一段长度为 60 个字符的消息发送后，下一条消息发送前就需要等待 1.2 秒了。</p>
+<h3 id="执行指令"><a href="#执行指令" class="headerlink" title="执行指令"></a>执行指令</h3><p>我们还可以实用 session.execute() 来让用户执行某条指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 当用户输入“查看帮助”时，执行 <span class="built_in">help</span> 指令</span><br><span class="line">ctx.middleware((session, next) =&gt; &#123;</span><br><span class="line">  if (session.content === &#x27;查看帮助&#x27;) &#123;</span><br><span class="line">    return session.execute(&#x27;help&#x27;, next)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://yskm.net">yskm</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yskm.net/posts/4.html">http://yskm.net/posts/4.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yskm.net" target="_blank">yskmの博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/AI/">AI</a></div><div class="post_share"><div class="social-share" data-image="/images/post/34.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.JPG" target="_blank"><img class="post-qr-code-img" src="/img/wechat.JPG" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.JPG" target="_blank"><img class="post-qr-code-img" src="/img/alipay.JPG" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/5.html"><img class="prev-cover" src="/images/post/35.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">聊天机器人开发(五)-实战演示</div></div></a></div><div class="next-post pull-right"><a href="/posts/3.html"><img class="next-cover" src="/images/post/24.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">聊天机器人开发(三)-指令和事件</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/1.html" title="聊天机器人开发(一)-利用LLOneBot+Koishi搭建"><img class="cover" src="/images/post/14.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-20</div><div class="title">聊天机器人开发(一)-利用LLOneBot+Koishi搭建</div></div></a></div><div><a href="/posts/2.html" title="聊天机器人开发(二)-第一次对话"><img class="cover" src="/images/post/18.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-11</div><div class="title">聊天机器人开发(二)-第一次对话</div></div></a></div><div><a href="/posts/3.html" title="聊天机器人开发(三)-指令和事件"><img class="cover" src="/images/post/24.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-15</div><div class="title">聊天机器人开发(三)-指令和事件</div></div></a></div><div><a href="/posts/5.html" title="聊天机器人开发(五)-实战演示"><img class="cover" src="/images/post/35.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-08-02</div><div class="title">聊天机器人开发(五)-实战演示</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Twikoo</span><span class="switch-btn"></span><span class="second-comment">Gitalk</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/01.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yskm</div><div class="author-info__description">you should know me</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&amp;k=YRqHzO2R"><i class="fa-duotone fa-pig"></i><span>加入【yskmの居酒屋】</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/358065695" target="_blank" title="BiliBili"><i class="fa-brands fa-bilibili"></i></a><a class="social-icon" href="https://v.douyin.com/MKeqfou/" target="_blank" title="tiktok"><i class="fa-brands fa-tiktok"></i></a><a class="social-icon" href="tencent://message/?uin=464178792" target="_blank" title="QQ"><i class="fa-brands fa-qq"></i></a><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="WX"><i class="fa-brands fa-weixin"></i></a><a class="social-icon" href="mailto:maimai.saq@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">AI，IT，GAMES，NEWS</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">异步中间件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%BD%AE%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">前置中间件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B4%E6%97%B6%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">临时中间件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E5%85%83%E7%B4%A0"><span class="toc-number">2.</span> <span class="toc-text">消息元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95-1"><span class="toc-number">2.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E5%85%83%E7%B4%A0"><span class="toc-number">2.2.</span> <span class="toc-text">标准元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%90%E5%8F%8A%E7%94%A8%E6%88%B7%E5%92%8C%E6%B6%88%E6%81%AF"><span class="toc-number">2.2.1.</span> <span class="toc-text">提及用户和消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B5%8C%E5%85%A5%E5%9B%BE%E7%89%87%E5%92%8C%E5%85%B6%E4%BB%96%E8%B5%84%E6%BA%90"><span class="toc-number">2.2.2.</span> <span class="toc-text">嵌入图片和其他资源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">进阶用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">机器人对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E6%B6%88%E6%81%AF"><span class="toc-number">3.2.</span> <span class="toc-text">广播消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%BE%85%E8%BE%93%E5%85%A5"><span class="toc-number">3.3.</span> <span class="toc-text">等待输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E5%8F%91%E9%80%81"><span class="toc-number">3.4.</span> <span class="toc-text">延时发送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">3.5.</span> <span class="toc-text">执行指令</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/5.html" title="聊天机器人开发(五)-实战演示"><img src="/images/post/35.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="聊天机器人开发(五)-实战演示"/></a><div class="content"><a class="title" href="/posts/5.html" title="聊天机器人开发(五)-实战演示">聊天机器人开发(五)-实战演示</a><time datetime="2023-08-02T14:00:01.000Z" title="发表于 2023-08-02 22:00:01">2023-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/4.html" title="聊天机器人开发(四)-中间件和消息元素"><img src="/images/post/34.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="聊天机器人开发(四)-中间件和消息元素"/></a><div class="content"><a class="title" href="/posts/4.html" title="聊天机器人开发(四)-中间件和消息元素">聊天机器人开发(四)-中间件和消息元素</a><time datetime="2023-07-23T14:00:01.000Z" title="发表于 2023-07-23 22:00:01">2023-07-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/3.html" title="聊天机器人开发(三)-指令和事件"><img src="/images/post/24.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="聊天机器人开发(三)-指令和事件"/></a><div class="content"><a class="title" href="/posts/3.html" title="聊天机器人开发(三)-指令和事件">聊天机器人开发(三)-指令和事件</a><time datetime="2023-06-15T13:00:01.000Z" title="发表于 2023-06-15 21:00:01">2023-06-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/2.html" title="聊天机器人开发(二)-第一次对话"><img src="/images/post/18.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="聊天机器人开发(二)-第一次对话"/></a><div class="content"><a class="title" href="/posts/2.html" title="聊天机器人开发(二)-第一次对话">聊天机器人开发(二)-第一次对话</a><time datetime="2023-06-11T15:00:21.000Z" title="发表于 2023-06-11 23:00:21">2023-06-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/1.html" title="聊天机器人开发(一)-利用LLOneBot+Koishi搭建"><img src="/images/post/14.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="聊天机器人开发(一)-利用LLOneBot+Koishi搭建"/></a><div class="content"><a class="title" href="/posts/1.html" title="聊天机器人开发(一)-利用LLOneBot+Koishi搭建">聊天机器人开发(一)-利用LLOneBot+Koishi搭建</a><time datetime="2023-05-20T14:00:27.000Z" title="发表于 2023-05-20 22:00:27">2023-05-20</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/images/post/34.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024  <i id="heartbeat" class="fa fas fa-heartbeat"></i> yskm</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">若问闲愁都几许，一川烟草，满城飞絮，梅子黄时雨。<p><a target="_blank" href="https://hexo.io/"><img src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&logo=hexo" title="博客框架为Hexo"></a>&nbsp;<a target="_blank" href="https://butterfly.js.org/"><img src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&logo=bitdefender" title="主题采用butterfly"></a>&nbsp;<a target="_blank" href="https://www.jsdelivr.com/"><img src="https://img.shields.io/badge/CDN-jsDelivr-orange?style=flat&logo=jsDelivr" title="本站使用JsDelivr为静态资源提供CDN加速"></a> &nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Vervel-brightgreen?style=flat&logo=Vercel" title="本站采用双线部署，默认线路托管于Vercel"></a>&nbsp;<a target="_blank" href="https://vercel.com/ "><img src="https://img.shields.io/badge/Hosted-Coding-0cedbe?style=flat&logo=Codio" title="本站采用双线部署，联通线路托管于Coding"></a>&nbsp;<a target="_blank" href="https://github.com/"><img src="https://img.shields.io/badge/Source-Github-d021d6?style=flat&logo=GitHub" title="本站项目由Gtihub托管"></a>&nbsp;<a target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&logo=Claris" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"></a></p></div></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">簡</button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo.yskm.net/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo.yskm.net/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk(Object.assign({
+      clientID: '92b7a2fbff2316d34e97',
+      clientSecret: '9243474a089c44092abb3e17ae0d699e8e3885c4',
+      repo: 'Maimai-Messages',
+      owner: 'Maimai-snowcapped',
+      admin: ['Maimai-snowcapped'],
+      id: '85709e53aa75cb1db6528e2f78a3ed9a',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Twikoo' === 'Gitalk' || !true) {
+  if (true) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script></div><script async data-pjax src="/js/sky.js"></script><div class="aplayer no-destroy" data-id="521161203" data-server="netease" data-type="song" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script defer src="https://npm.elemecdn.com/jquery@latest/dist/jquery.min.js"></script><script defer data-pjax src="/js/cat.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '2s');
+    arr[i].setAttribute('data-wow-delay', '1s');
+    arr[i].setAttribute('data-wow-offset', '100');
+    arr[i].setAttribute('data-wow-iteration', '2');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
